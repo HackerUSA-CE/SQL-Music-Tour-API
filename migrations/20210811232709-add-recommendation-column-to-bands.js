@@ -11,4 +11,4 @@ module.exports = {
   down: async (queryInterface, Sequelize) => {
     await queryInterface.removeColumn('bands', 'recommendation')
   }
-};
+}
