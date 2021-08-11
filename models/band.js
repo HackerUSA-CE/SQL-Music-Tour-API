@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   Band.init({
     band_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      primaryKey: true,
+      autoIncrement: true
     },
     name: {
         type: DataTypes.STRING,
@@ -37,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Band',
-    tableName: 'band',
+    tableName: 'bands',
     timestamps: false
   })
   return Band
