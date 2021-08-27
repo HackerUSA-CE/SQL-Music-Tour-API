@@ -27,7 +27,10 @@ stages.get('/:name', async (req, res) => {
                 model: Event, 
                 as: "events",
                 through: { attributes: [] }
-            }
+            },
+            order: [
+                [{ model: Event, as: "events" }, 'date', 'ASC'],
+            ]
         })
         res.status(200).json(foundStage)
     } catch (error) {

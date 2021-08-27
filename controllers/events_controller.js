@@ -28,11 +28,16 @@ events.get('/:name', async (req, res) => {
                 { 
                     model: MeetGreet, 
                     as: "meet_greets", 
-                    include: { model: Band, as: "band"} 
+                    attributes: { exclude: [ "event_id", "band_id" ] },
+                    include: {
+                         model: Band, 
+                         as: "band", 
+                    } 
                 },
                 { 
                     model: SetTime, 
                     as: "set_times",
+                    attributes: { exclude: [ "event_id", "stage_id", "band_id" ] },
                     include: [
                         { model: Band, as: "band" },
                         { model: Stage, as: "stage" }
