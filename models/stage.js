@@ -1,8 +1,7 @@
-'use strict';
+'use strict'
 const {
   Model
 } = require('sequelize');
-const stages = require('../controllers/stages_controller');
 module.exports = (sequelize, DataTypes) => {
   class Stage extends Model {
     /**
@@ -10,15 +9,15 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({Event, StageEvent, SetTime}) {
-      // define association here
-      //events
-      stages.belongsToMany(Event, {
+    static associate({ Event, StageEvent, SetTime }) {
+      // events 
+      Stage.belongsToMany(Event, {
         foreignKey: "stage_id",
         as: "events",
         through: StageEvent
       })
-      // set times
+
+      // set times 
       Stage.hasMany(SetTime, {
         foreignKey: "stage_id",
         as: "set_times"
@@ -40,6 +39,6 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'Stage',
     tableName: 'stages',
     timestamps: false
-  });
-  return Stage;
-};
+  })
+  return Stage
+}
