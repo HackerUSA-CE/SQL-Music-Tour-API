@@ -13,9 +13,9 @@ class Event extends Model {
     // define association here
         // stages
         Event.belongsToMany(Stage, {
-            foreignKey: "event_id",
+            foreignKey: 'event_id',
             as: "stages",
-            through: StageEvent     
+            through: StageEvent
         })
         // meet and greets
         Event.hasMany(MeetGreet, {

@@ -16,11 +16,10 @@ static associate({MeetGreet, SetTime}) {
         foreignKey: "band_id",
         as: "meet_greets"
     })
-
-    // set times
+   // set times
     Band.hasMany(SetTime, {
         foreignKey: "band_id",
-        set_times: "set_times" 
+        set_times: "set_times"
     })
 }
 }
