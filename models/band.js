@@ -9,7 +9,7 @@ class Band extends Model {
  * This method is not a part of Sequelize lifecycle.
  * The `models/index` file will call this method automatically.
  */
-static associate({MeetGreet, SetTime}) {
+static associate({ MeetGreet, SetTime }) {
     // define association here
     //meet and greets
     Band.hasMany(MeetGreet, {
@@ -19,7 +19,7 @@ static associate({MeetGreet, SetTime}) {
    // set times
     Band.hasMany(SetTime, {
         foreignKey: "band_id",
-        set_times: "set_times"
+        as: "set_times"
     })
 }
 }
