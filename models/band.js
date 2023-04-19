@@ -34,6 +34,10 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.DATE,
 				allowNull: false,
 			},
+			recommendation: {
+				type: DataTypes.TEXT,
+				allowNull: true
+			}
 		},
 		{
 			sequelize,
