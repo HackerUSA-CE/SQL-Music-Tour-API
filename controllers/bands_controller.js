@@ -1,7 +1,7 @@
 const bands = require('express').Router()
 const db = require('../models')
 const { Band } = db
-
+const { Op } = require('sequelize')
 
 // ! CREATE
 // * Create a band
@@ -23,7 +23,26 @@ bands.post('/', async(req, res) => {
 // * Find all bands
 bands.get('/', async (req, res) => {
     try {
-        const foundBands = await Band.findAll()
+        const foundBands = await Band.findAll({
+            attributes: [
+                ['name','band_name'],
+                ['available_start_time','start_time'],
+                'end_time'
+            ],
+            order: [['available_start_time','ASC']],
+            where: {
+                name: {
+                    [Op.like]: `%${ req.query.name ? req.query.name : '' }%`
+                },
+                genre: {
+                    [Op.like]: `%${ req.query.genre ? req.query.genre: '' }%`
+                },
+                // TODO: fix recommendation filter
+                // recommendation: {
+                //     [Op.like]: `${ req.query.rec ? '%' : '' }`
+                // }
+            }
+        })
         res.status(200).json(foundBands)
     } catch(e) {
         res.status(500).json(e)
