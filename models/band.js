@@ -11,8 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      
     }
-  }
+  };
   Band.init({
     band_id: {
       type: DataTypes.INTEGER,

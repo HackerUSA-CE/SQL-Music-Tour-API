@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  }
+    
+  };
   MeetGreet.init({
     meet_greet_id: {
       type: DataTypes.INTEGER,
