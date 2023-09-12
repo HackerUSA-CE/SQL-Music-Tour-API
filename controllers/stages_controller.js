@@ -8,7 +8,7 @@ const { Stage } = db
 stages.get('/', async (req, res) => {
   try {
     const foundStages = await Stage.findAll({
-    order:[['date', 'ASC']],
+   // order:[['date', 'ASC']],
     
     })
     res.status(200).json(foundStages)
@@ -50,7 +50,7 @@ stages.put('/:id', async (req, res) => {
   try {
     const updatedStages = await Stage.update(req.body, {
       where: {
-        stages_id: req.params.id
+        stage_id: req.params.id
       }
     })
     res.status(200).json({
@@ -65,9 +65,9 @@ stages.put('/:id', async (req, res) => {
 // DELETE A BAND
 stages.delete('/:id', async (req, res) => {
   try {
-    const deletedStages = await Stages.destroy({
+    const deletedStages = await Stage.destroy({
       where: {
-        stages_id: req.params.id
+        stage_id: req.params.id
       }
     })
     res.status(200).json({
