@@ -1,5 +1,5 @@
 GET http://localhost:3000/bands/Tupac
 ###
-GET http://localhost:3000/events/Eminem
+GET http://localhost:3000/events/DistortedTour
 ###
-GET http://localhost:3000/stages
+GET http://localhost:3000/stages/BestStage
