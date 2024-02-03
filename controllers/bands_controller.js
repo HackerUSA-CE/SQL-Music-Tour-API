@@ -24,6 +24,7 @@ bands.get('/:name', async (req, res) => {
             include: { model: MeetGreet, as: 'meet_greets' },
         });
         res.status(200).json(foundBand);
+        console.log('Found Band');
     } catch (error) {
         res.status(500).json(error);
     }
